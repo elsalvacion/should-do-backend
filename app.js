@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 require("dotenv").config({ path: "./config/.env" });
 const connectDB = require("./config/db");
 
@@ -10,7 +11,7 @@ const user = require("./routes/auth");
 connectDB();
 
 const app = express();
-
+app.use(cors());
 app.use(express.json());
 
 // use routes
