@@ -5,39 +5,27 @@ const History = require("../models/History");
 router.get("/", async (req, res) => {
   const tasks = await History.find();
   if (!tasks) {
-    return res.status(401).json({
-      data: [],
-    });
+    return res.status(401).json([]);
   }
-  res.status(200).json({
-    data: tasks,
-  });
+  res.status(200).json(tasks);
 });
 
 // get single history
 router.get("/:id", async (req, res) => {
   const tasks = await History.findById(req.params.id);
   if (!tasks) {
-    return res.status(401).json({
-      data: [],
-    });
+    return res.status(401).json([]);
   }
-  res.status(200).json({
-    data: tasks,
-  });
+  res.status(200).json(tasks);
 });
 
 // create history
 router.post("/", async (req, res) => {
   const tasks = await History.create(req.body);
   if (!tasks) {
-    return res.status(401).json({
-      data: [],
-    });
+    return res.status(401).json([]);
   }
-  res.status(200).json({
-    data: tasks,
-  });
+  res.status(200).json(tasks);
 });
 
 // update a history
@@ -46,13 +34,9 @@ router.put("/:id", async (req, res) => {
     new: true,
   });
   if (!tasks) {
-    return res.status(401).json({
-      data: [],
-    });
+    return res.status(401).json([]);
   }
-  res.status(200).json({
-    data: tasks,
-  });
+  res.status(200).json(tasks);
 });
 
 // delete a history
@@ -61,13 +45,9 @@ router.delete("/:id", async (req, res) => {
     new: true,
   });
   if (!tasks) {
-    return res.status(401).json({
-      data: [],
-    });
+    return res.status(401).json([]);
   }
-  res.status(200).json({
-    data: tasks,
-  });
+  res.status(200).json(tasks);
 });
 
 module.exports = router;
